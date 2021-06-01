@@ -13,8 +13,7 @@ class Zendesk {
   }
 
   Future<void> setDepartment(String department) async {
-    SetDepartmentRequest request = SetDepartmentRequest()
-      ..department = department;
+    SetDepartmentRequest request = SetDepartmentRequest()..department = department;
 
     await _chatApi.setDepartment(request);
   }
@@ -25,9 +24,9 @@ class Zendesk {
     String phoneNumber,
   }) async {
     SetVisitorInfoRequest request = SetVisitorInfoRequest()
-      ..name = name
-      ..email = email
-      ..phoneNumber = phoneNumber;
+      ..visitorName = name
+      ..visitorEmail = email
+      ..visitorPhone = phoneNumber;
 
     await _profileApi.setVisitorInfo(request);
   }
@@ -75,7 +74,7 @@ class Zendesk {
       ..iosBackButtonTitle = iosBackButtonTitle
       ..iosNavigationBarColor = iosNavigationBarColor?.value
       ..iosNavigationTitleColor = iosNavigationTitleColor?.value;
-      
+
     await _chatApi.startChat(request);
   }
 }
